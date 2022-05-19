@@ -160,3 +160,11 @@ fname[10].textContent = [data[10].first_name + " " + data[10].last_name];
 email[10].textContent = data[10].email;
 gender[10].textContent = data[10].gender;
 address[10].textContent = data[10].ip_address;
+//2-usul
+// let i;
+// for (i = 0; i <= 11; i++){
+// img[i].src = data[i].src;
+// fname[i].textContent = [data[i].first_name + " " + data[i].last_name];
+// email[i].textContent = data[i].email;
+// gender[i].textContent = data[i].gender;
+// address[i].textContent = data[i].ip_address;
