@@ -100,28 +100,32 @@ const data = [
   },
 ];
 const ul = document.querySelector('ul')
-for(let i = 0;i <= data.length; i++ ) {
-const li = document.createElement('li');
-li.className = ('user card d-inline-block col-12 col-lg-4 col-md-6 col-xl-3 px-2"');
-const div = document.createElement('div');
-div.className =('user__content card-body"');
-const img = document.createElement('img');
-img.className = ('user__img card-img');
-img.src = data[i].src;
-const h3 = document.createElement('h3');
-h3.className = ('user__fullname h5 mt-3');
-h3.textContent = [data[i].first_name + data[i].last_name];
-const a = document.createElement('a');
-a.className = ('user__email h6 text-primary d-block');
-a.textContent =  data[i].email;
-const p = document.createElement('p');
-p.className = ('user__gender h6');
-p.textContent = data[i].gender
-const p2 = document.createElement('p');
-p2.className = ('user__address text-bg-info rounded text-white ps-2"') ;
-p2.textContent = data[i].ip_address;     
-div.append(img,h3,a,p,p2);
-li.append(div); 
-ul.append(li);
-
+const tagdiv = document.createDocumentFragment('div')
+function element(tagName,className){
+  var tagName = document.createElement(tagName);
+  tagName.className = (className);
+  return tagName;
+}
+function txt (content,b){
+  content.textContent = b
+  return content;
+}
+for (i = 0; i <= data.length; i++){
+  const  tagli = element(`li`,'user card d-inline-block col-12 col-lg-4 col-md-6 col-xl-3 px-2');
+  const  taglidiv = element(`div`,'user__content card-body');
+  const  tagimg = element(`img`,'user__img card-img');
+  tagimg.src = data[i].src;
+  const taghead = element(`h3`,'user__fullname h5 mt-3');
+  txt(taghead,[data[i].first_name + " "+ data[i].last_name]);
+  const taganker = element(`a`,'user__email h6 text-primary d-block')
+  txt(taganker,data[i].email)
+  const page = element(`p`,'user__gender h6');
+  txt(page,data[i].gender)
+  const page2 = element(`p`,'user__address text-bg-info rounded text-white ps-2');
+  txt(page2,data[i].ip_address)
+  taglidiv.append(tagimg,taghead,taganker,page,page2);
+  tagli.append(taglidiv);
+  tagdiv.append(tagli);
+  console.log(i);
+  ul.append(tagdiv)
 }
